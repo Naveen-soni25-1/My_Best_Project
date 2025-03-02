@@ -36,12 +36,12 @@ def get_input(prompt):
 # Show user the menu
 def menu():
     """Print a simple menu for user"""
-    print("\n[ENTER OPTION NUMBER]")
+    print("\n--[ENTER OPTION NUMBER]--")
     print("---MENU---")
     menu_options = ['Add Task', 'Show Tasks', 'Delete Task', 'Mark Complete']
     for i, option in enumerate(menu_options, 1):
         print(f"{i}: {option}")
-    return get_input("Select Option: ")
+    return get_input("“Select Option:” ")
 
 # Function to add task
 def add_task():
