@@ -5,10 +5,17 @@ This repository contains all my **main and important Python projects**, carefull
 I use this as my core portfolio to track and showcase the best work I've done so far.
 
 ---
-
 ## 🗂️ Project Structure
+My_real_project/
+├── Data_visualization_project/
+│ ├── Die_visualization/
+│ ├── Random_data_visualization/
+│ └── Weather_data_visualization/
 
----
+├── pygame_project/
+│ ├── alien_invasion/
+│ ├── snake_game/
+│ └── space_dodger/
 
 ## 📊 Data Visualization Projects
 
