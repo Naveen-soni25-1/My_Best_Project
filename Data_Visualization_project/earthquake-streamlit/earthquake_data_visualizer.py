@@ -8,8 +8,13 @@ from datetime import date
 st.set_page_config(page_title="Earthquake Map", layout="wide", page_icon="🌍")
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("Created by **Naveen Soni**")
-st.sidebar.markdown("[GitHub](https://github.com/Naveen-soni25-1)")
+st.sidebar.markdown("## About")
+st.sidebar.markdown("""
+👋 Hi, I’m **Naveen Soni**, a passionate developer and data enthusiast.
+This app visualizes live earthquake data using the USGS API and interactive maps.
+Feel free to explore, share feedback, or check out my [GitHub](https://github.com/Naveen-soni25-1) for more projects!
+🌍 Stay curious and keep learning!
+""")
 
 # App title
 st.title("🌍 Live Earthquake Feed from USGS")
