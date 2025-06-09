@@ -4,10 +4,10 @@ import plotly.express as px
 
 # Page title
 st.title("COVID-19 Daily Cases Visualizer")
-st.markdown("Built with Plotly + Streamlit")
+st.markdown("Built with Plotly + Streamlit") # subtitle 
 
 # Load Data
-@st.cache_data
+@st.cache_data # caching the functuon data
 def load_data():
     url = "https://covid.ourworldindata.org/data/owid-covid-data.csv"
     return pd.read_csv(url, parse_dates=["date"])
@@ -19,6 +19,7 @@ countries = df["location"].dropna().unique()
 selected_country = st.selectbox("Select Country:", sorted(countries))
 
 # Metric selector
+# st.radio: Lets the user choose one metric
 metric = st.radio(
     "Select Metric to Visualize:",
     options=["new_cases", "total_cases", "total_deaths"],
@@ -29,7 +30,8 @@ metric = st.radio(
 # Filter data for selected country
 country_df = df[df["location"] == selected_country].copy()
 
-# Drop rows with missing data in the selected metric
+# dropna(subset=[metric]) 
+# Tells pandas: "Only drop rows where the value for metric is missing (NaN)."
 country_df = country_df.dropna(subset=[metric])
 
 # Check if data is available
