@@ -2,6 +2,17 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+st.set_page_config(page_title="Covied-19 visualizer", layout="wide", page_icon="🌍")
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("## About")
+st.sidebar.markdown("""
+👋 Hi, I’m **Naveen Soni**, a passionate developer and data enthusiast.
+This app visualizes live covid-19 data using the Api and csv file.
+Feel free to explore, share feedback, or check out my [GitHub](https://github.com/Naveen-soni25-1) for more projects!
+🌍 Stay curious and keep learning!
+""")
+
 # Page title
 st.title("COVID-19 Daily Cases Visualizer")
 st.markdown("Built with Plotly + Streamlit") # subtitle 
