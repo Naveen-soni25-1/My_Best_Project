@@ -1,0 +1,44 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+  <h1>Topic: {{ topic|title }}</h1>
+{% endblock page_header %}
+
+{% block content %}
+<div class="m-2">
+  <p>
+    <strong>
+      <a href="{% url 'learning_logs:new_entry' topic.id %}" class="text-primary">Add New Entry</a>
+    </strong>
+  </p>
+
+  <form action="{% url 'learning_logs:delete_topic' topic.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-sm">
+      <strong>Delete Topic</strong>
+    </button>
+    <div class="border-bottom mb-4">
+      <strong class="text-danger">Only When Confirm!</strong>
+    </div>
+  </form>
+
+  <h3 class="text-capitalize">Entries:</h3>
+  {% if entries %}
+    {% for entry in entries %}
+      <div class="card mb-3">
+        <h4 class="card-header">
+          {{ entry.date_added|date:"M d, Y H:i" }}
+          <small>
+            <a href="{% url 'learning_logs:edit_entry' entry.id %}" class="text-primary">Edit Entry</a>
+          </small>
+        </h4>
+        <div class="card-body">
+          {{ entry.text|linebreaks }}
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>There are no entries for this topic yet.</p>
+  {% endif %}
+</div>
+{% endblock content %}

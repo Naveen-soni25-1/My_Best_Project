@@ -1,0 +1,45 @@
+name: "ll_project"
+type: "python:3.11"
+
+# Specify your disk size in MB
+disk: 512
+
+# Define your database relationship
+relationships:
+  database: "db:postgresql"
+
+web:
+  commands:
+    start: "gunicorn ll_project.wsgi:application --bind 0.0.0.0:$PORT --workers 4"
+    
+  locations:
+    "/":
+      passthru: true
+
+    "/static":
+      root: "static"
+      allow: true
+      expires: 1h
+
+# Optional: define local mounts (for logs)
+mounts:
+  "logs":
+    source: local
+    source_path: logs
+
+# Lifecycle hooks
+hooks:
+  build: |
+    # Upgrade pip
+    pip install --upgrade pip
+
+    # Install dependencies
+    pip install -r requirements.txt
+    pip install -r requirements_remote.txt
+
+    # Collect static files
+    python manage.py collectstatic --noinput
+
+  deploy: |
+    # Run migrations at deploy time
+    python manage.py migrate --noinput

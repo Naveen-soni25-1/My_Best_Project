@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.ll_env/
+ll_env/
+ENV/
+.venv/
+
+# VS Code / PyCharm
+.vscode/
+.idea/
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+
+# Static and media files generated at runtime (optional)
+staticfiles/
+static_root/
+media/
+
+# Environment variables
+*.env
+.env
+
+# Platform.sh local config files
+.platform/local/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# __init__.pyc in any folder
+**/__pycache__/
+
+# pytest / coverage
+.coverage
+.tox/
+.pytest_cache/
+htmlcov/
+

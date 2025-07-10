@@ -1,0 +1,20 @@
+{% extends 'learning_logs/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+<h1>Topic:{{topic|title}}</h1>
+{% endblock page_header %}
+
+{% block content %}
+<h3 style="color: grey;">Add New Entry:</h3>
+<form action="{% url 'learning_logs:new_entry' topic.id %}" method="post" class="navbar-nav me-auto mb-2 mb-md-1">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% bootstrap_button button_type="submit" content="Save Entry" %}
+</form>
+<form action="{% url 'learning_logs:topic' topic.id %}" method="get" 
+class="navbar-nav me-auto mb-2 mb-md-0">
+  {% csrf_token %}
+  {% bootstrap_button button_type="submit" content="Cancel" %}
+</form>
+{% endblock content %}
