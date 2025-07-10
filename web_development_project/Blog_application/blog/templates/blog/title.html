@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block contents %}
+<div style="margin: 5px;">
+    <p>
+        <strong>
+            <a href="{% url 'blog:new_post' title.id %}" style="color: cornflowerblue;">Add New Post</a>
+        </strong>
+    </p>
+
+    <form action="{% url 'blog:delete_title' title.id %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_button button_type="submit" button_class="btn btn-danger" content="Delete Title" %}
+        <div style="border: 0cap;" class="border-bottom mb-4"><strong>"Only When Confirm!"</strong></div>
+    </form>
+    <h1 Style="text-align: center; color: wheat; text-align: left;">Title: {{title|title}}
+    </h1>
+    <h3> <small style="text-align: right; color: grey;">Owner: <em>{{title.owner|title}}</em></small></h3>
+    <p  style="color: black; font-size: 19px; font-family: Arial, sans-serif; ">
+        <stronge style="color: beige ;">Description: </stronge><em style="color: beige">{{title.description}}</em>
+    </p>
+
+    <h3 style="text-align: left; text-transform: capitalize;" class="border-bottom mb-4">entries:</h3>
+    <ul>
+        {% for post in posts %}
+          <div class="card mb-3">
+            <div class="card-header">
+              <strong>{{ post.date_added|date:"M d, Y H:i"}},</strong>
+              <small><a href="{% url 'blog:edit_post' post.id %}" style="color: wheat">Edit Post</a></small>
+            </div>
+            <div class="card-body">
+                {% if post.author == request.user %}
+                  <strong style="color: blanchedalmond;"> Your Post</strong>
+                {% else %}
+                  <em>{{post.author|title}}</em>
+                {% endif %}
+                  <p><em>{{post.text|linebreaks}}</em></p>
+            </div>
+          </div>
+        {% endfor %}
+    </ul>   
+</div>
+{% endblock contents %}

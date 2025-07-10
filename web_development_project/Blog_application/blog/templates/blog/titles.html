@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block contents %}
+<div style="margin: 5px;">
+    <h1 Style="text-align: center; color: whitesmoke; text-align: left;" class="border-bottom pb-2 mb-4">Titles:</h1>
+    <ul class="list-group border-bottom pb-2 mb-4">
+        {% for title in titles %}
+          <em  style="color: wheat;"> Author: {{title.owner|title}}</em>
+          <li class="list-group-item border-0">
+              <a href="{% url 'blog:title'  title.id %}" style="color: grey;"><strong>{{title|title}}</strong></a>
+              <p> </p>
+          </li>
+        {% empty %}
+          <li class="list-group-item border-0 ">No Blog Title Is Available</li>
+        {% endfor %}
+    </ul>
+    <p>
+      <a href="{% url 'blog:new_title' %}" style="color: cornsilk;"><strong> Add New Topic</strong></a>
+    </p>
+</div>
+{% endblock contents %}

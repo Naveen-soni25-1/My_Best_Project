@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block contents %}
+<p style="color: black; font-size: 20px; font-family: Arial, sans-serif;">New Title:</p>
+<form action="{% url 'blog:new_title' %}" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" button_class="btn btn-primary" content="Add Title" %}
+</form>
+{% endblock contents %}

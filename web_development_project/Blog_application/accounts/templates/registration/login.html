@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block contents %}
+<div class="container">
+    <h1>Login</h1>
+    <form action="{% url 'accounts:login' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" button_class="btn btn-primary" content="login" %}
+    </form>
+    <p style="text-align: center;">Don't have an Account!
+        <a href="{% url 'accounts:register' %}" style="color: gray;">Register</a>
+    </p>
+</div>
+{% endblock contents %}

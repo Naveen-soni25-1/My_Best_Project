@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A blog web application">
+  <meta name="author" content="Naveen Soni">
+  <title>{% block title %}Blog Application{% endblock title %}</title>
+
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="container">
+    <header class="border-bottom lh-1 py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <a class="link-secondary" href="{% url 'accounts:register' %}">Register</a>
+        </div>
+        <div class="col-4 text-center">
+          <a class="blog-header-logo text-body-emphasis text-decoration-none" href="{% url 'blog:index' %}">
+            <h1>Blog Application</h1>
+          </a>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <a class="btn btn-sm btn-outline-secondary" href="{% url 'accounts:login' %}">Login</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <div class="nav-scroller py-1 mb-3 border-bottom">
+      <nav class="nav nav-underline justify-content-between">
+        <a class="nav-item nav-link link-body-emphasis active" href="#">World</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Technology</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Business</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Politics</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Science</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
+        <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    {% block contents %}
+    {% endblock contents %}
+  </main>
+
+  <!-- Footer (Optional) -->
+  <footer class="text-center py-4">
+    <p class="text-muted mb-0">&copy; {{ year }} Blog Application by Naveen Soni</p>
+  </footer>
+
+</body>
+</html>
