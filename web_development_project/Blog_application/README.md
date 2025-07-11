@@ -1,11 +1,11 @@
-# 📚 Learning Log Web Application
+# BLog Web Application
 
 ## ✏️ Description
 A full-featured learning log web application built with Django.
 It allows users to register, create topics, and add summaries under each topic — helping you track your learning progress over time.
 
 ## 🔗 Live Demo
-[Visit Learning Log App](https://master-7rqtwti-ceee6y5yexque.eu-5.platformsh.site/)
+[Visit BLog App](https://master-7rqtwti-hjeujhvatkitm.eu-5.platformsh.site/)
 
 ## 📸 Screenshots
 ![Home Page](screenshots/home.png)
@@ -14,8 +14,8 @@ It allows users to register, create topics, and add summaries under each topic �
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/learning-log.git
-cd learning-log
+git clone https://github.com/yourusername/blog.git
+cd blog
 ```
 **💡 Note for beginners: You can use GitHub Desktop to make this process easier.**
 
@@ -56,8 +56,9 @@ python manage.py runserver
 ### ✨ Features
 > User registration & authentication
 > Create and edit log topics
-> Add, edit, and delete summaries (logs)
->  Responsive design with Bootstrap
+> Add, edit, and delete blogs
+> Responsive design with Bootstrap
+> All blog Are publicly available you edit them
 
 ### 🛠️ Tech Stack
 
